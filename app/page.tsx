@@ -1,6 +1,12 @@
 
-export default function Home() {
+export default async function Home() {
+
+  const reponse = await fetch('https://api.github.com/users/LuizFelipeOC');
+  const user = await reponse.json();
+
+  console.log(user)
+
   return (
-   <h1>Hello World</h1>
+    <pre>{JSON.stringify(user, null, 2)}</pre>
   );
 }
